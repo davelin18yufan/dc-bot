@@ -85,10 +85,10 @@ var customConfig = defineConfig([
             ],
             'no-return-await': 'off',
             'no-unused-vars': 'off',
-            'prefer-const': 'off',
+            'prefer-const': 'warn',
             quotes: [
                 'error',
-                'single',
+                'double',
                 {
                     allowTemplateLiterals: true,
                 },
