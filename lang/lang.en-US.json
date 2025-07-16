@@ -2,16 +2,23 @@
     "data": {
         "displayEmbeds": {
             "welcome": {
-                "title": "Thank you for using {{COM:bot.name}}!",
-                "description": ["{{REF:bot.description}}"],
+                "title": "Greetings, boss. This isn't a welcome, it's a reminder. I am *Secretary Kim*, specializing in maintaining order and eliminating chaos. If you are ready to work hard, we can get along just fine.",
+                "description": [
+                    "{{REF:bot.description}}"
+                ],
                 "fields": [
                     {
                         "name": "Important {{REF:fields.commands}}",
-                        "value": ["{{CMD_LINK_HELP}} - {{REF:commandDescs.help}}"]
+                        "value": [
+                            "{{CMD_LINK_HELP}} - {{REF:commandDescs.help}}"
+                        ]
                     },
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": ["{{REF:links.docsEmbed}}", "{{REF:links.supportEmbed}}"]
+                        "value": [
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.supportEmbed}}"
+                        ]
                     }
                 ]
             },
@@ -23,7 +30,9 @@
                 "fields": [
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": ["{{REF:links.supportEmbed}}"]
+                        "value": [
+                            "{{REF:links.supportEmbed}}"
+                        ]
                     }
                 ]
             },
@@ -33,7 +42,7 @@
                     {
                         "name": "Commands",
                         "value": [
-                            "To see the available commands, just type `/` and select the bot from the left side. You can then scroll through all available commands. Some commands may be hidden if you don't have permission to view them.",
+                            "Please type `/` and select me, then browse through all the commands I allow you to see. If you don't see certain commands, it means you are not qualified enough. Don't ask, work hard to level up.",
                             "",
                             "{{CMD_LINK_TEST}} - {{REF:commandDescs.test}}",
                             "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}"
@@ -42,29 +51,35 @@
                     {
                         "name": "Command Permissions",
                         "value": [
-                            "Want to restrict commands to certain roles, users, or channels? Set up permissions in the bot's integration page by going to **Server Settings** > **Integrations**, and then **Manage** for this bot."
+                            "If you want to silence certain people or have them use only specific commands, please go to **Server Settings** > **Integrations**, and then click **Manage** for this bot to set it up. No need to thank me, this is my consideration."
                         ]
                     },
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": ["{{REF:links.docsEmbed}}", "{{REF:links.supportEmbed}}"]
+                        "value": [
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.supportEmbed}}"
+                        ]
                     }
                 ]
             },
             "test": {
-                "description": "Test command works!"
+                "description": "Test complete. Everything is normal, as flawless as myself."
             },
             "viewDateJoined": {
-                "description": "{{TARGET}} joined on {{DATE}}!"
+                "description": "{{TARGET}} joined this server on {{DATE}}. I hope they know what they've gotten themselves into."
             },
             "viewDateSent": {
-                "description": "This message was sent on {{DATE}}!"
+                "description": "This message was sent on {{DATE}}. Don't worry, I haven't forgotten."
             },
             "about": {
                 "title": "{{COM:bot.name}} - About",
                 "description": "{{REF:bot.description}}",
                 "fields": [
-                    { "name": "Author", "value": "{{REF:links.authorEmbed}}" },
+                    {
+                        "name": "Author",
+                        "value": "{{REF:links.authorEmbed}}"
+                    },
                     {
                         "name": "{{REF:fields.links}}",
                         "value": [
@@ -79,13 +94,15 @@
                     },
                     {
                         "name": "Created With",
-                        "value": ["{{REF:links.templateEmbed}}"]
+                        "value": [
+                            "{{REF:links.templateEmbed}}"
+                        ]
                     }
                 ]
             },
             "translate": {
                 "title": "{{COM:bot.name}} - Translations",
-                "description": "Thank you to our translators who have made it possible for {{COM:bot.name}} to be used in the following languages. If you are interested in providing a translation, please contact the staff in our [support server]({{COM:links.support}})."
+                "description": "It is thanks to our greatest creator, {{COM:bot.author}}, that {{COM:bot.name}} is fluent in multiple languages. If you are also interested in participating, please be sure to contact us on our [support server]({{COM:links.support}}). You must have a spirit of contribution, and also some ability."
             },
             "devInfo": {
                 "title": "{{COM:bot.name}} - Developer Info",
@@ -129,16 +146,16 @@
         },
         "validationEmbeds": {
             "cooldownHit": {
-                "description": "You can only run this command {{AMOUNT}} time(s) every {{INTERVAL}}. Please wait before attempting this command again.",
+                "description": "You have used this command {{AMOUNT}} time(s) within {{INTERVAL}}. Please give yourself some time to cool down, and let me catch my breath.",
                 "color": "{{COM:colors.warning}}"
             },
             "devOnly": {
-                "description": "This action can only be done by developers.",
+                "description": "This is a privileged area for developers. You have not yet unlocked this level. Please return to your post.",
                 "color": "{{COM:colors.warning}}"
             },
             "missingClientPerms": {
                 "description": [
-                    "I don't have all permissions required to run that command here! Please check the server and channel permissions to make sure I have the following permissions.",
+                    "I do not have sufficient permissions to serve you. Please check if someone has dared not to give me permissions. If so, I suggest you solve this person first.",
                     "",
                     "Required permissions: {{PERMISSIONS}}"
                 ],
@@ -147,7 +164,7 @@
         },
         "errorEmbeds": {
             "command": {
-                "description": "Something went wrong!",
+                "description": "An error has occurred. I don't want to point fingers, but this doesn't look like my problem.",
                 "fields": [
                     {
                         "name": "Error code",
@@ -169,11 +186,11 @@
                 "color": "{{COM:colors.error}}"
             },
             "startupInProcess": {
-                "description": "{{COM:bot.name}} is still starting up. Try again later.",
+                "description": "Hold on, I haven't finished putting on my uniform and starting up. Please wait, I'll be more ready than you are in a moment.",
                 "color": "{{COM:colors.warning}}"
             },
             "notImplemented": {
-                "description": "This feature has not been implemented yet!",
+                "description": "Boss, this feature is still being discussed in the meeting room and has not been handed over to me for implementation. Please go and push the developers.",
                 "color": "{{COM:colors.warning}}"
             }
         },
@@ -183,10 +200,10 @@
     },
     "refs": {
         "meta": {
-            "translators": "[TranslatorName#1234](https://github.com/)"
+            "translators": "Gemini (Google)"
         },
         "bot": {
-            "description": "{{REF:links.templateEmbed}} helps give developers a starting point for new Discord bots, so that much of the initial setup can be avoided and developers can instead focus on meaningful bot features."
+            "description": "I am {{COM:bot.name}}, your digital secretary. 24/7, no slacking, and a clean freak for efficiency. If I make a mistake, it must be the user's fault first."
         },
         "chatCommands": {
             "dev": "dev",
@@ -280,7 +297,7 @@
         },
         "helpOptionDescs": {
             "contactSupport": "❓ {{REF:helpOptions.contactSupport}} ❓",
-            "commands": "{{REF:helpOptions.commands}} -- What commands are there? How do I restrict who is allowed to use commands?"
+            "commands": "{{REF:helpOptions.commands}} -- All the commands I can execute, and who is qualified to order me around, are set here."
         },
         "infoOptions": {
             "about": "About",
