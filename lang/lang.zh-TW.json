@@ -1,0 +1,329 @@
+{
+    "data": {
+        "displayEmbeds": {
+            "welcome": {
+                "title": "老闆，您好。這不是歡迎，是提醒。我是*金秘書*，專職維持秩序、剷除混亂。如果您已經準備好努力，那我們可以好好共事。",
+                "description": [
+                    "{{REF:bot.description}}"
+                ],
+                "fields": [
+                    {
+                        "name": "重要的 {{REF:fields.commands}}",
+                        "value": [
+                            "{{CMD_LINK_HELP}} - {{REF:commandDescs.help}}"
+                        ]
+                    },
+                    {
+                        "name": "{{REF:fields.links}}",
+                        "value": [
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.supportEmbed}}"
+                        ]
+                    }
+                ]
+            },
+            "helpContactSupport": {
+                "title": "幫助 - {{REF:helpOptions.contactSupport}}",
+                "description": [
+                    "有任何問題或回饋嗎？透過下方的連結加入我們的支援伺服器！"
+                ],
+                "fields": [
+                    {
+                        "name": "{{REF:fields.links}}",
+                        "value": [
+                            "{{REF:links.supportEmbed}}"
+                        ]
+                    }
+                ]
+            },
+            "helpCommands": {
+                "title": "幫助 - {{REF:helpOptions.commands}}",
+                "fields": [
+                    {
+                        "name": "指令",
+                        "value": [
+                            "請輸入 `/` 並選擇我，然後翻閱所有我允許你看到的指令。如果你沒看到某些指令，代表你還不夠格，別問，努力升級再來。",
+                            "",
+                            "{{CMD_LINK_TEST}} - {{REF:commandDescs.test}}",
+                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}"
+                        ]
+                    },
+                    {
+                        "name": "指令權限",
+                        "value": [
+                            "如果您想讓某些人閉嘴或只能乖乖使用特定指令，請前往**伺服器設定** > **整合**，然後點擊此機器人的**管理**來設定，不用感謝，這是我的貼心。"
+                        ]
+                    },
+                    {
+                        "name": "{{REF:fields.links}}",
+                        "value": [
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.supportEmbed}}"
+                        ]
+                    }
+                ]
+            },
+            "test": {
+                "description": "測試完成，一切正常，跟我一樣完美無瑕。"
+            },
+            "viewDateJoined": {
+                "description": "{{TARGET}} 在 {{DATE}} 加入了本伺服器，希望他知道自己走進來了什麼地方。"
+            },
+            "viewDateSent": {
+                "description": "這訊息是在 {{DATE}} 發送的。別擔心，我沒忘。"
+            },
+            "about": {
+                "title": "{{COM:bot.name}} - 關於",
+                "description": "{{REF:bot.description}}",
+                "fields": [
+                    {
+                        "name": "作者",
+                        "value": "{{REF:links.authorEmbed}}"
+                    },
+                    {
+                        "name": "{{REF:fields.links}}",
+                        "value": [
+                            "{{REF:links.sourceEmbed}}",
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.termsEmbed}}",
+                            "{{REF:links.voteEmbed}}",
+                            "{{REF:links.donateEmbed}}",
+                            "{{REF:links.supportEmbed}}",
+                            "{{REF:links.inviteEmbed}}"
+                        ]
+                    },
+                    {
+                        "name": "基於",
+                        "value": [
+                            "{{REF:links.templateEmbed}}"
+                        ]
+                    }
+                ]
+            },
+            "translate": {
+                "title": "{{COM:bot.name}} - 翻譯",
+                "description": "能讓 {{COM:bot.name}} 精通多國語言，全靠我家最強創作者 {{COM:bot.author}} 大大。要是您也想參與，請務必在 [支援伺服器]({{COM:links.support}}) 中聯繫我們。要有貢獻精神，也要有點本事。"
+            },
+            "devInfo": {
+                "title": "{{COM:bot.name}} - 開發者資訊",
+                "fields": [
+                    {
+                        "name": "版本",
+                        "value": [
+                            "**Node.js**: {{NODE_VERSION}}",
+                            "**TypeScript**: {{TS_VERSION}}",
+                            "**ECMAScript**: {{ES_VERSION}}",
+                            "**discord.js**: {{DJS_VERSION}}"
+                        ]
+                    },
+                    {
+                        "name": "統計",
+                        "value": [
+                            "**分片**: {{SHARD_COUNT}}",
+                            "**伺服器**: {{SERVER_COUNT}} ({{SERVER_COUNT_PER_SHARD}}/分片)"
+                        ]
+                    },
+                    {
+                        "name": "記憶體",
+                        "value": [
+                            "**RSS**: {{RSS_SIZE}} ({{RSS_SIZE_PER_SERVER}}/伺服器)",
+                            "**堆疊**: {{HEAP_TOTAL_SIZE}} ({{HEAP_TOTAL_SIZE_PER_SERVER}}/伺服器)",
+                            "**已使用**: {{HEAP_USED_SIZE}} ({{HEAP_USED_SIZE_PER_SERVER}}/伺服器)"
+                        ]
+                    },
+                    {
+                        "name": "ID",
+                        "value": [
+                            "**主機名稱**: {{HOSTNAME}}",
+                            "**分片 ID**: {{SHARD_ID}}",
+                            "**伺服器 ID**: {{SERVER_ID}}",
+                            "**機器人 ID**: {{BOT_ID}}",
+                            "**使用者 ID**: {{USER_ID}}"
+                        ]
+                    }
+                ]
+            }
+        },
+        "validationEmbeds": {
+            "cooldownHit": {
+                "description": "您已在 {{INTERVAL}} 內使用此指令 {{AMOUNT}} 次。請給自己一點冷靜時間，也讓我喘口氣。",
+                "color": "{{COM:colors.warning}}"
+            },
+            "devOnly": {
+                "description": "這是開發者的特權區，您還沒解鎖這種等級。請回到您的崗位。",
+                "color": "{{COM:colors.warning}}"
+            },
+            "missingClientPerms": {
+                "description": [
+                    "我權限不足，無法為您服務。請確認是否有人膽敢不給我權限。如果有，建議優先解決這個人。",
+                    "",
+                    "所需權限：{{PERMISSIONS}}"
+                ],
+                "color": "{{COM:colors.warning}}"
+            }
+        },
+        "errorEmbeds": {
+            "command": {
+                "description": "發生錯誤了。我不想指責，但這看起來不像是我的問題。",
+                "fields": [
+                    {
+                        "name": "錯誤代碼",
+                        "value": "{{ERROR_CODE}}"
+                    },
+                    {
+                        "name": "伺服器 ID",
+                        "value": "{{GUILD_ID}}"
+                    },
+                    {
+                        "name": "分片 ID",
+                        "value": "{{SHARD_ID}}"
+                    },
+                    {
+                        "name": "聯繫支援",
+                        "value": "{{COM:links.support}}"
+                    }
+                ],
+                "color": "{{COM:colors.error}}"
+            },
+            "startupInProcess": {
+                "description": "等等，我還沒穿好制服啟動完成。請稍候，我很快就會比你還準備好。",
+                "color": "{{COM:colors.warning}}"
+            },
+            "notImplemented": {
+                "description": "老闆，這功能還在會議室裡討論，還沒交給我實作。請去鞭策開發人。",
+                "color": "{{COM:colors.warning}}"
+            }
+        },
+        "channelRegexes": {
+            "bot": "/bot|機器人|指令|cmd/i"
+        }
+    },
+    "refs": {
+        "meta": {
+            "translators": "Gemini (Google)"
+        },
+        "bot": {
+            "description": "我是 {{COM:bot.name}}，您的數位秘書。全年無休、拒絕摸魚、對效率有潔癖。如果我出錯，那一定是使用者先錯了。"
+        },
+        "chatCommands": {
+            "dev": "開發者",
+            "help": "幫助",
+            "info": "資訊",
+            "test": "測試"
+        },
+        "userCommands": {
+            "viewDateJoined": "查看加入日期"
+        },
+        "messageCommands": {
+            "viewDateSent": "查看發送日期"
+        },
+        "arguments": {
+            "command": "指令",
+            "option": "選項"
+        },
+        "commandDescs": {
+            "dev": "僅供開發者使用。",
+            "help": "尋求幫助或聯繫支援。",
+            "info": "查看機器人資訊。",
+            "test": "執行測試指令。"
+        },
+        "argDescs": {
+            "devCommand": "指令。",
+            "helpOption": "選項。",
+            "infoOption": "選項。"
+        },
+        "fields": {
+            "commands": "指令",
+            "links": "連結"
+        },
+        "permissions": {
+            "AddReactions": "新增反應",
+            "Administrator": "管理員",
+            "AttachFiles": "附加檔案",
+            "BanMembers": "封鎖成員",
+            "ChangeNickname": "更改暱稱",
+            "Connect": "連接",
+            "CreateEvents": "建立活動",
+            "CreateGuildExpressions": "建立表情",
+            "CreateInstantInvite": "建立邀請",
+            "CreatePrivateThreads": "建立私人討論串",
+            "CreatePublicThreads": "建立公開討論串",
+            "DeafenMembers": "拒聽成員",
+            "EmbedLinks": "嵌入連結",
+            "KickMembers": "踢出成員",
+            "ManageChannels": "管理頻道",
+            "ManageEmojisAndStickers": "管理表情符號和貼圖",
+            "ManageEvents": "管理活動",
+            "ManageGuild": "管理伺服器",
+            "ManageGuildExpressions": "管理表情",
+            "ManageMessages": "管理訊息",
+            "ManageNicknames": "管理暱稱",
+            "ManageRoles": "管理身分組/權限",
+            "ManageThreads": "管理討論串/貼文",
+            "ManageWebhooks": "管理 Webhook",
+            "MentionEveryone": "提及 @everyone, @here 和所有身分組",
+            "ModerateMembers": "禁言成員",
+            "MoveMembers": "移動成員",
+            "MuteMembers": "靜音成員",
+            "PrioritySpeaker": "優先發言",
+            "ReadMessageHistory": "讀取訊息歷史",
+            "RequestToSpeak": "請求發言",
+            "SendMessages": "發送訊息/建立貼文",
+            "SendMessagesInThreads": "在討論串/貼文中發送訊息",
+            "SendPolls": "建立投票",
+            "SendTTSMessages": "發送文字轉語音訊息",
+            "SendVoiceMessages": "發送語音訊息",
+            "Speak": "說話",
+            "Stream": "直播",
+            "UseApplicationCommands": "使用應用程式指令",
+            "UseEmbeddedActivities": "使用嵌入式活動",
+            "UseExternalApps": "使用外部應用程式",
+            "UseExternalEmojis": "使用外部表情符號",
+            "UseExternalSounds": "使用外部音效",
+            "UseExternalStickers": "使用外部貼圖",
+            "UseSoundboard": "使用音效板",
+            "UseVAD": "使用語音活動",
+            "ViewAuditLog": "查看審核日誌",
+            "ViewChannel": "查看頻道",
+            "ViewCreatorMonetizationAnalytics": "查看伺服器訂閱分析",
+            "ViewGuildInsights": "查看伺服器分析"
+        },
+        "devCommandNames": {
+            "info": "資訊"
+        },
+        "helpOptions": {
+            "contactSupport": "聯繫支援",
+            "commands": "指令列表"
+        },
+        "helpOptionDescs": {
+            "contactSupport": "❓ {{REF:helpOptions.contactSupport}} ❓",
+            "commands": "{{REF:helpOptions.commands}} -- 所有我能執行的指令，以及誰有資格使喚我，都在這裡設定"
+        },
+        "infoOptions": {
+            "about": "關於",
+            "translate": "翻譯"
+        },
+        "yesNo": {
+            "yes": "對",
+            "no": "不對"
+        },
+        "boolean": {
+            "true": "是",
+            "false": "否"
+        },
+        "other": {
+            "na": "不適用"
+        },
+        "links": {
+            "authorEmbed": "[{{COM:bot.author}}]({{COM:links.author}})",
+            "docsEmbed": "[查看文件]({{COM:links.docs}})",
+            "donateEmbed": "[透過 PayPal 贊助]({{COM:links.donate}})",
+            "inviteEmbed": "[邀請 {{COM:bot.name}} 到一個伺服器！]({{COM:links.invite}})",
+            "sourceEmbed": "[查看原始碼]({{COM:links.source}})",
+            "supportEmbed": "[加入支援伺服器]({{COM:links.support}})",
+            "templateEmbed": "[Discord 機器人 TypeScript 範本]({{COM:links.template}})",
+            "termsEmbed": "[查看服務條款]({{COM:links.terms}})",
+            "voteEmbed": "[為 {{COM:bot.name}} 投票！]({{COM:links.vote}})"
+        }
+    }
+}
