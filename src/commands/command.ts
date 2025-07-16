@@ -4,10 +4,10 @@ import {
     AutocompleteInteraction,
     CommandInteraction,
     PermissionsString,
-} from 'discord.js';
-import { RateLimiter } from 'discord.js-rate-limiter';
+} from "discord.js";
+import { RateLimiter } from "discord.js-rate-limiter";
 
-import { EventData } from '../models/internal-models.js';
+import { EventData } from "@/models/internal-models.js";
 
 export interface Command {
     names: string[];
@@ -22,7 +22,7 @@ export interface Command {
 }
 
 export enum CommandDeferType {
-    PUBLIC = 'PUBLIC',
-    HIDDEN = 'HIDDEN',
-    NONE = 'NONE',
+    PUBLIC = "PUBLIC",
+    HIDDEN = "HIDDEN",
+    NONE = "NONE",
 }
