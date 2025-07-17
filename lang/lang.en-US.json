@@ -40,12 +40,19 @@
                 "title": "Help - {{REF:helpOptions.commands}}",
                 "fields": [
                     {
+                        "name": ["Backup"],
+                        "value": ["I got you baby. Type `/help` to see how awesome I am."]
+                    },
+                    {
                         "name": "Commands",
                         "value": [
                             "Please type `/` and select me, then browse through all the commands I allow you to see. If you don't see certain commands, it means you are not qualified enough. Don't ask, work hard to level up.",
                             "",
                             "{{CMD_LINK_TEST}} - {{REF:commandDescs.test}}",
-                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}"
+                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}",
+                            "{{CMD_LINK_DEV}} - {{REF:commandDescs.dev}}",
+                            "{{CMD_LINK_VIEW_DATE_JOINED}} - {{REF:userCommands.viewDateJoined}}",
+                            "{{CMD_LINK_VIEW_DATE_SENT}} - {{REF:messageCommands.viewDateSent}}"
                         ]
                     },
                     {
@@ -56,10 +63,7 @@
                     },
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": [
-                            "{{REF:links.docsEmbed}}",
-                            "{{REF:links.supportEmbed}}"
-                        ]
+                        "value": ["{{REF:links.docsEmbed}}", "{{REF:links.supportEmbed}}"]
                     }
                 ]
             },

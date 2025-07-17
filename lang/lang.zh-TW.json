@@ -40,12 +40,19 @@
                 "title": "幫助 - {{REF:helpOptions.commands}}",
                 "fields": [
                     {
+                        "name": ["求照顧"],
+                        "value": ["I got you baby. 執行 `/help` 來查看我有多猛。"]
+                    },
+                    {
                         "name": "指令",
                         "value": [
-                            "請輸入 `/` 並選擇我，然後翻閱所有我允許你看到的指令。如果你沒看到某些指令，代表你還不夠格，別問，努力升級再來。",
+                            "請輸入 `/` 並選擇，然後翻閱所有我允許你看到的指令。如果你沒看到某些指令，代表你還不夠格，別問，努力升級再來。",
                             "",
                             "{{CMD_LINK_TEST}} - {{REF:commandDescs.test}}",
-                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}"
+                            "{{CMD_LINK_INFO}} - {{REF:commandDescs.info}}",
+                            "{{CMD_LINK_DEV}} - {{REF:commandDescs.dev}}",
+                            "{{CMD_LINK_VIEW_DATE_JOINED}} - {{REF:userCommands.viewDateJoined}}",
+                            "{{CMD_LINK_VIEW_DATE_SENT}} - {{REF:messageCommands.viewDateSent}}"
                         ]
                     },
                     {
