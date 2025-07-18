@@ -1,10 +1,8 @@
-import { DiscordAPIError } from 'discord.js';
-import { Response } from 'node-fetch';
-import { createRequire } from 'node:module';
-import pino from 'pino';
+import { DiscordAPIError } from "discord.js";
+import { Response } from "node-fetch";
+import pino from "pino";
 
-const require = createRequire(import.meta.url);
-let Config = require('../../config/config.json');
+import Config from "~/config/config.json";
 
 let logger = pino(
     {
@@ -16,11 +14,11 @@ let logger = pino(
     },
     Config.logging.pretty
         ? pino.transport({
-              target: 'pino-pretty',
+              target: "pino-pretty", // 美化格式
               options: {
                   colorize: true,
-                  ignore: 'pid,hostname',
-                  translateTime: 'yyyy-mm-dd HH:MM:ss.l',
+                  ignore: "pid,hostname",
+                  translateTime: "yyyy-mm-dd HH:MM:ss.l",
               },
           })
         : undefined
@@ -53,7 +51,7 @@ export class Logger {
         }
 
         // Otherwise log details about the error
-        if (typeof obj === 'string') {
+        if (typeof obj === "string") {
             logger
                 .child({
                     message: obj,

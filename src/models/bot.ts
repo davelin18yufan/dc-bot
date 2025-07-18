@@ -13,8 +13,8 @@ import {
     RateLimitData,
     RESTEvents,
     User,
-} from 'discord.js';
-import { createRequire } from 'node:module';
+} from "discord.js";
+import { createRequire } from "node:module";
 
 import {
     ButtonHandler,
@@ -23,14 +23,14 @@ import {
     GuildLeaveHandler,
     MessageHandler,
     ReactionHandler,
-} from '../events/index.js';
-import { JobService, Logger } from '../services/index.js';
-import { PartialUtils } from '../utils/index.js';
+} from "../events/index.js";
+import { JobService, Logger } from "../services/index.js";
+import { PartialUtils } from "../utils/index.js";
 
 const require = createRequire(import.meta.url);
-let Config = require('../../config/config.json');
-let Debug = require('../../config/debug.json');
-let Logs = require('../../lang/logs.json');
+const Config = require("../../config/config.json");
+const Debug = require("../../config/debug.json");
+const Logs = require("../../lang/logs.json");
 
 export class Bot {
     private ready = false;
@@ -53,6 +53,7 @@ export class Bot {
     }
 
     private registerListeners(): void {
+        // Bot Class 本身不處理具體的指令邏輯，它只負責識別事件類型並將其分派給對應的專家處理器。這使得 Bot 類別的職責非常清晰，易於維護。
         this.client.on(Events.ClientReady, () => this.onReady());
         this.client.on(Events.ShardReady, (shardId: number, unavailableGuilds: Set<string>) =>
             this.onShardReady(shardId, unavailableGuilds)
@@ -81,8 +82,8 @@ export class Bot {
     }
 
     private async onReady(): Promise<void> {
-        let userTag = this.client.user?.tag;
-        Logger.info(Logs.info.clientLogin.replaceAll('{USER_TAG}', userTag));
+        const userTag = this.client.user?.tag;
+        Logger.info(Logs.info.clientLogin.replaceAll("{USER_TAG}", userTag));
 
         if (!Debug.dummyMode.enabled) {
             this.jobService.start();
@@ -150,13 +151,13 @@ export class Bot {
 
         if (intr instanceof CommandInteraction || intr instanceof AutocompleteInteraction) {
             try {
-                await this.commandHandler.process(intr);
+                await this.commandHandler.process(intr); // <--- 調度給 CommandHandler
             } catch (error) {
                 Logger.error(Logs.error.command, error);
             }
         } else if (intr instanceof ButtonInteraction) {
             try {
-                await this.buttonHandler.process(intr);
+                await this.buttonHandler.process(intr); //<--- 調度給 ButtonHandler
             } catch (error) {
                 Logger.error(Logs.error.button, error);
             }
