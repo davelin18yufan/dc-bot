@@ -5,7 +5,6 @@
 /temp
 /**/config/**/*.json
 !/**/config/**/*.example.json
-/gemini
 
 # =====================================================
 # Node.js
