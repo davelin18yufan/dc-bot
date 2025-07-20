@@ -39,7 +39,13 @@ export class BugsCommand implements Command {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     status: status || "all",
-                    assignee: assignee?.id,
+                    assignee: assignee
+                        ? {
+                              id: assignee.id,
+                              username: assignee.username,
+                              globalName: assignee.globalName || assignee.username,
+                          }
+                        : null,
                 }),
             });
 
