@@ -149,6 +149,22 @@
                         ]
                     }
                 ]
+            },
+            "projectNoPermission": {
+                "description": "抱歉，這不是您能碰的指令。請不要越級指揮。",
+                "color": "{{COM:colors.warning}}"
+            },
+            "projectQuerySent": {
+                "description": "已送出對專案 **{{PROJECT_NAME}}** 的查詢要求。我會幫您盯著，請耐心，效率不是每個人都跟我一樣。",
+                "color": "{{COM:colors.success}}"
+            },
+            "bugsNoPermission": {
+                "description": "這不是您能動的指令。權限這東西，不是想要就有。",
+                "color": "{{COM:colors.warning}}"
+            },
+            "bugsQuerySent": {
+                "description": "狀態為 **{{STATUS}}** 的問題單查詢已送出。我會為您追蹤，請不要催，我又不是工程師。",
+                "color": "{{COM:colors.success}}"
             }
         },
         "validationEmbeds": {
@@ -199,6 +215,14 @@
             "notImplemented": {
                 "description": "老闆，這功能還在會議室裡討論，還沒交給我實作。請去鞭策開發人。",
                 "color": "{{COM:colors.warning}}"
+            },
+            "projectQueryFailed": {
+                "description": "查詢專案 **{{PROJECT_NAME}}** 失敗。請稍後再試。",
+                "color": "{{COM:colors.error}}"
+            },
+            "bugsQueryFailed": {
+                "description": "查詢狀態為 **{{STATUS}}** 的問題單失敗。請稍後再試。",
+                "color": "{{COM:colors.error}}"
             }
         },
         "channelRegexes": {
@@ -216,7 +240,9 @@
             "dev": "開發者",
             "help": "幫助",
             "info": "資訊",
-            "test": "測試"
+            "test": "測試",
+            "project": "專案",
+            "bugs": "問題"
         },
         "userCommands": {
             "viewDateJoined": "查看加入日期"
@@ -226,18 +252,26 @@
         },
         "arguments": {
             "command": "指令",
-            "option": "選項"
+            "option": "選項",
+            "projectName": "專案名稱",
+            "status": "狀態",
+            "assignee": "承辦人"
         },
         "commandDescs": {
             "dev": "僅供開發者使用。",
             "help": "尋求幫助或聯繫支援。",
             "info": "查看機器人資訊。",
-            "test": "執行測試指令。"
+            "test": "執行測試指令。",
+            "project": "查詢專案資訊。",
+            "bugs": "查詢問題單。"
         },
         "argDescs": {
             "devCommand": "指令。",
             "helpOption": "選項。",
-            "infoOption": "選項。"
+            "infoOption": "選項。",
+            "projectName": "要查詢的專案名稱。",
+            "status": "要查詢的問題單狀態。",
+            "assignee": "問題單的承辦人。"
         },
         "fields": {
             "commands": "指令",

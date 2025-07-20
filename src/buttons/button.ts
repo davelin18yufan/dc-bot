@@ -1,6 +1,6 @@
-import { ButtonInteraction } from 'discord.js';
+import { ButtonInteraction } from "discord.js";
 
-import { EventData } from '../models/internal-models.js';
+import { EventData } from "../models/internal-models.js";
 
 export interface Button {
     ids: string[];
@@ -11,7 +11,7 @@ export interface Button {
 }
 
 export enum ButtonDeferType {
-    REPLY = 'REPLY',
-    UPDATE = 'UPDATE',
-    NONE = 'NONE',
+    REPLY = "REPLY",
+    UPDATE = "UPDATE",
+    NONE = "NONE",
 }
