@@ -7,7 +7,7 @@ import { Language } from "../models/enum-helpers/index.js";
 
 export class Lang {
     private static linguini = new Linguini(
-        path.resolve(dirname(fileURLToPath(import.meta.url)), "~/lang"),
+        path.resolve(dirname(fileURLToPath(import.meta.url)), "../../lang"),
         "lang"
     );
 

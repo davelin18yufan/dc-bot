@@ -165,6 +165,10 @@
             "bugsQuerySent": {
                 "description": "狀態為 **{{STATUS}}** 的問題單查詢已送出。我會為您追蹤，請不要催，我又不是工程師。",
                 "color": "{{COM:colors.success}}"
+            },
+            "chatNoPermission": {
+                "description": "您沒有權限使用此指令。",
+                "color": "{{COM:colors.warning}}"
             }
         },
         "validationEmbeds": {
@@ -217,11 +221,15 @@
                 "color": "{{COM:colors.warning}}"
             },
             "projectQueryFailed": {
-                "description": "查詢專案 **{{PROJECT_NAME}}** 失敗。請稍後再試。",
+                "description": "專案 **{{PROJECT_NAME}}** 查不到資料。不是我失職，是系統太固執，建議您稍後再試。",
                 "color": "{{COM:colors.error}}"
             },
             "bugsQueryFailed": {
-                "description": "查詢狀態為 **{{STATUS}}** 的問題單失敗。請稍後再試。",
+                "description": "狀態為 **{{STATUS}}** 的問題單查詢失敗。我也很想揪出原因，但有些錯誤不是我能忍的。請過幾秒再試。",
+                "color": "{{COM:colors.error}}"
+            },
+            "chatQueryFailed": {
+                "description": "我試著根據您問的：**{{QUESTION}}** 去查，但失敗了。可能是資料太神祕，或是問得不夠精準。請再調整後重試。",
                 "color": "{{COM:colors.error}}"
             }
         },
@@ -234,7 +242,7 @@
             "translators": "Gemini (Google)"
         },
         "bot": {
-            "description": "我是 {{COM:bot.name}}，您的數位秘書。全年無休、拒絕摸魚、對效率有潔癖。如果我出錯，那一定是使用者先錯了。"
+            "description": "我是 {{COM:bot.name}}，您的數位金秘書。全年無休、拒絕摸魚、對效率有潔癖。如果我出錯，那一定是使用人先錯了。"
         },
         "chatCommands": {
             "dev": "開發者",
@@ -242,7 +250,8 @@
             "info": "資訊",
             "test": "測試",
             "project": "專案",
-            "bugs": "問題"
+            "bugs": "問題",
+            "chat": "聊天"
         },
         "userCommands": {
             "viewDateJoined": "查看加入日期"
@@ -255,7 +264,8 @@
             "option": "選項",
             "projectName": "專案名稱",
             "status": "狀態",
-            "assignee": "承辦人"
+            "assignee": "承辦人",
+            "question": "問題"
         },
         "commandDescs": {
             "dev": "僅供開發者使用。",
@@ -263,7 +273,8 @@
             "info": "查看機器人資訊。",
             "test": "執行測試指令。",
             "project": "查詢專案資訊。",
-            "bugs": "查詢問題單。"
+            "bugs": "查詢問題單。",
+            "chat": "向 LLM 提問。"
         },
         "argDescs": {
             "devCommand": "指令。",
@@ -271,7 +282,8 @@
             "infoOption": "選項。",
             "projectName": "要查詢的專案名稱。",
             "status": "要查詢的問題單狀態。",
-            "assignee": "問題單的承辦人。"
+            "assignee": "問題單的承辦人。",
+            "question": "要問 LLM 的問題。"
         },
         "fields": {
             "commands": "指令",

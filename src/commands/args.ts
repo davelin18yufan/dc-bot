@@ -82,4 +82,11 @@ export class Args {
         description_localizations: Lang.getRefLocalizationMap("argDescs.assignee"),
         type: ApplicationCommandOptionType.User,
     };
+    public static readonly QUESTION: APIApplicationCommandBasicOption = {
+        name: Lang.getRef("arguments.question", Language.Default),
+        name_localizations: Lang.getRefLocalizationMap("arguments.question"),
+        description: Lang.getRef("argDescs.question", Language.Default),
+        description_localizations: Lang.getRefLocalizationMap("argDescs.question"),
+        type: ApplicationCommandOptionType.String,
+    };
 }

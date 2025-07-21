@@ -162,6 +162,10 @@
             "bugsQuerySent": {
                 "description": "Query for bug reports with status **{{STATUS}}** has been sent. Please wait for the result.",
                 "color": "{{COM:colors.success}}"
+            },
+            "chatNoPermission": {
+                "description": "You do not have permission to use this command.",
+                "color": "{{COM:colors.warning}}"
             }
         },
         "validationEmbeds": {
@@ -220,6 +224,10 @@
             "bugsQueryFailed": {
                 "description": "Failed to query bug reports with status **{{STATUS}}**. Please try again later.",
                 "color": "{{COM:colors.error}}"
+            },
+            "chatQueryFailed": {
+                "description": "Failed to query with question **{{QUESTION}}**. Please try again later.",
+                "color": "{{COM:colors.error}}"
             }
         },
         "channelRegexes": {
@@ -239,7 +247,8 @@
             "info": "info",
             "test": "test",
             "project": "project",
-            "bugs": "bugs"
+            "bugs": "bugs",
+            "chat": "chat"
         },
         "userCommands": {
             "viewDateJoined": "View Date Joined"
@@ -252,7 +261,8 @@
             "option": "option",
             "projectName": "project-name",
             "status": "status",
-            "assignee": "assignee"
+            "assignee": "assignee",
+            "question": "question"
         },
         "commandDescs": {
             "dev": "Developer use only.",
@@ -260,7 +270,8 @@
             "info": "View bot info.",
             "test": "Run the test command.",
             "project": "Query project information.",
-            "bugs": "Query bug reports."
+            "bugs": "Query bug reports.",
+            "chat": "Ask LLM a question."
         },
         "argDescs": {
             "devCommand": "Command.",
@@ -268,7 +279,8 @@
             "infoOption": "Option.",
             "projectName": "The name of the project to query.",
             "status": "The status of the bug reports to query.",
-            "assignee": "The user assigned to the bug report."
+            "assignee": "The user assigned to the bug report.",
+            "question": "The question to ask the LLM."
         },
         "fields": {
             "commands": "Commands",
