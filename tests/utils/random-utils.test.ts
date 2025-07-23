@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { RandomUtils } from '../../src/utils/index.js';
 
 // Mock any configs that might be loaded
-vi.mock('../../config/config.json', () => ({}));
+vi.mock('../../config/config.json', () => ({ default: {} }));
 vi.mock('../../config/debug.json', () => ({}));
 vi.mock('../../lang/logs.json', () => ({}));
 

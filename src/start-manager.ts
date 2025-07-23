@@ -1,25 +1,25 @@
-import { ShardingManager } from 'discord.js';
-import { createRequire } from 'node:module';
-import 'reflect-metadata';
+import { ShardingManager, ShardingManagerMode } from "discord.js";
+import "reflect-metadata";
 
-import { GuildsController, RootController, ShardsController } from './controllers/index.js';
-import { Job, UpdateServerCountJob } from './jobs/index.js';
-import { Api } from './models/api.js';
-import { Manager } from './models/manager.js';
-import { HttpService, JobService, Logger, MasterApiService } from './services/index.js';
-import { MathUtils, ShardUtils } from './utils/index.js';
+import { GuildsController, RootController, ShardsController } from "@/controllers/index.js";
+import { Job, UpdateServerCountJob } from "@/jobs/index.js";
+import { Api } from "@/models/api.js";
+import { Manager } from "@/models/manager.js";
+import { HttpService, JobService, Logger, MasterApiService } from "@/services/index.js";
+import { MathUtils, ShardUtils } from "@/utils/index.js";
+import Config from "~/config/config.json";
+import Debug from "~/config/debug.json";
+import Logs from "~/lang/logs.json";
 
-const require = createRequire(import.meta.url);
-let Config = require('../config/config.json');
-let Debug = require('../config/debug.json');
-let Logs = require('../lang/logs.json');
-
+/**
+ * 啟動、管理和監控一個或多個機器人子程序 (Shards)
+ */
 async function start(): Promise<void> {
     Logger.info(Logs.info.appStarted);
 
     // Dependencies
-    let httpService = new HttpService();
-    let masterApiService = new MasterApiService(httpService);
+    const httpService = new HttpService();
+    const masterApiService = new MasterApiService(httpService);
     if (Config.clustering.enabled) {
         await masterApiService.register();
     }
@@ -28,15 +28,18 @@ async function start(): Promise<void> {
     let shardList: number[];
     let totalShards: number;
     try {
+        // Manager 需要知道它要啟動哪些分片 (shardList) 以及總共有多少分片 (totalShards)。
         if (Config.clustering.enabled) {
-            let resBody = await masterApiService.login();
+            // 叢集模式
+            const resBody = await masterApiService.login(); // 獲取分配給它的 shardList 和 totalShards
             shardList = resBody.shardList;
-            let requiredShards = await ShardUtils.requiredShardCount(Config.client.token);
+            const requiredShards = await ShardUtils.requiredShardCount(Config.client.token);
             totalShards = Math.max(requiredShards, resBody.totalShards);
         } else {
-            let recommendedShards = await ShardUtils.recommendedShardCount(
+            // 獨立模式
+            const recommendedShards = await ShardUtils.recommendedShardCount(
                 Config.client.token,
-                Config.sharding.serversPerShard
+                Config.sharding.serversPerShard // 根據設定好的分片數量
             );
             shardList = MathUtils.range(0, recommendedShards);
             totalShards = recommendedShards;
@@ -51,37 +54,41 @@ async function start(): Promise<void> {
         return;
     }
 
-    let shardManager = new ShardingManager('dist/start-bot.js', {
+    // 每個分片子程序應該運行哪個檔案。 Manager 和實際 Bot 邏輯分離的地方;
+    const shardManager = new ShardingManager("dist/start-bot.js", {
         token: Config.client.token,
-        mode: Debug.override.shardMode.enabled ? Debug.override.shardMode.value : 'process',
+        mode: Debug.override.shardMode.enabled
+            ? (Debug.override.shardMode.value as ShardingManagerMode)
+            : "process",
         respawn: true,
         totalShards,
         shardList,
     });
 
-    // Jobs
-    let jobs: Job[] = [
-        Config.clustering.enabled ? undefined : new UpdateServerCountJob(shardManager, httpService),
+    // Jobs 背景任務
+    const jobs: Job[] = [
+        Config.clustering.enabled ? undefined : new UpdateServerCountJob(shardManager, httpService), // 將機器人伺服器數量發布到機器人列表網站
         // TODO: Add new jobs here
-    ].filter(Boolean);
+    ].filter(Boolean); // 過濾掉陣列中的 undefined 值
 
-    let manager = new Manager(shardManager, new JobService(jobs));
+    const manager = new Manager(shardManager, new JobService(jobs));
 
     // API
-    let guildsController = new GuildsController(shardManager);
-    let shardsController = new ShardsController(shardManager);
-    let rootController = new RootController();
-    let api = new Api([guildsController, shardsController, rootController]);
+    const guildsController = new GuildsController(shardManager);
+    const shardsController = new ShardsController(shardManager);
+    const rootController = new RootController();
+    const api = new Api([guildsController, shardsController, rootController]);
 
     // Start
-    await manager.start();
-    await api.start();
+    await manager.start(); // 觸發 ShardingManager 的 spawn() 方法來啟動所有分片子程序，並啟動 JobService。
+    await api.start(); // 啟動 API 伺服器，使其可以接收請求
     if (Config.clustering.enabled) {
-        await masterApiService.ready();
+        // 通知主服務已經準備就緒，所有分配給它的分片都已成功啟動
+        await masterApiService.ready(); 
     }
 }
 
-process.on('unhandledRejection', (reason, _promise) => {
+process.on("unhandledRejection", (reason, _promise) => {
     Logger.error(Logs.error.unhandledRejection, reason);
 });
 

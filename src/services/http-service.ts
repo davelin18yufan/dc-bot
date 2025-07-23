@@ -1,24 +1,24 @@
-import fetch, { Response } from 'node-fetch';
-import { URL } from 'node:url';
+import fetch, { Response } from "node-fetch";
+import { URL } from "node:url";
 
 export class HttpService {
     public async get(url: string | URL, authorization: string): Promise<Response> {
         return await fetch(url.toString(), {
-            method: 'get',
+            method: "get",
             headers: {
                 Authorization: authorization,
-                Accept: 'application/json',
+                Accept: "application/json",
             },
         });
     }
 
     public async post(url: string | URL, authorization: string, body?: object): Promise<Response> {
         return await fetch(url.toString(), {
-            method: 'post',
+            method: "post",
             headers: {
                 Authorization: authorization,
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
+                "Content-Type": "application/json",
+                Accept: "application/json",
             },
             body: body ? JSON.stringify(body) : undefined,
         });
@@ -26,11 +26,11 @@ export class HttpService {
 
     public async put(url: string | URL, authorization: string, body?: object): Promise<Response> {
         return await fetch(url.toString(), {
-            method: 'put',
+            method: "put",
             headers: {
                 Authorization: authorization,
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
+                "Content-Type": "application/json",
+                Accept: "application/json",
             },
             body: body ? JSON.stringify(body) : undefined,
         });
@@ -42,11 +42,11 @@ export class HttpService {
         body?: object
     ): Promise<Response> {
         return await fetch(url.toString(), {
-            method: 'delete',
+            method: "delete",
             headers: {
                 Authorization: authorization,
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
+                "Content-Type": "application/json",
+                Accept: "application/json",
             },
             body: body ? JSON.stringify(body) : undefined,
         });
