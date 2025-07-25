@@ -224,7 +224,8 @@
      - 敏感資料（如帳密）僅限 `@Developer` 查詢。
      - Google Sheet 設定唯讀權限，n8n 獨立寫入。
      - n8n 使用環境變數儲存 API 密鑰與資料庫憑證。
-   - **工具**：Google Sheet 權限管理、n8n 環境變數。
+     - **API 安全**：所有從 Discord Bot 發送到 n8n Webhook 的請求，都必須在請求的 Header 中攜帶一個由伺服器端生成的 JWT (JSON Web Token)。n8n 端會驗證此 Token 的有效性，無效或缺失 Token 的請求將被拒絕。
+   - **工具**：Google Sheet 權限管理、n8n 環境變數、`jsonwebtoken` 套件、n8n JWT 驗證節點。
 
 3. **日誌與監控**：
    - **內容**：記錄 n8n 工作流執行日誌（Webhook、AI、Sheet 寫入）。
