@@ -18,6 +18,9 @@ export class ProjectCommand implements Command {
         const projectName = intr.options.getString(
             Lang.getRef("arguments.projectName", Language.Default)
         );
+        const question = intr.options.getString(
+            Lang.getRef("arguments.question", Language.Default)
+        );
 
         // Permission check
         const allowedUserIds = [...Config.developers, ...Config.pms];
@@ -39,6 +42,7 @@ export class ProjectCommand implements Command {
             const httpService = HttpService.getInstance();
             const response = await httpService.post(Config.webhooks.projects, `Bearer ${token}`, {
                 projectName,
+                question,
             });
 
             if (!response.ok) {
