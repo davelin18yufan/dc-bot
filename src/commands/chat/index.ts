@@ -5,3 +5,5 @@ export { ProjectCommand } from "./project-command.js";
 export { TestCommand } from "./test-command.js";
 export { ChatCommand } from "./chat-command.js";
 export { BugsCommand } from "./bugs-command.js";
+export { WorkOnCommand } from "./work-on-command.js";
+export { WorkOffCommand } from "./work-off-command.js";

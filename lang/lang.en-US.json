@@ -228,6 +228,22 @@
             "chatQueryFailed": {
                 "description": "Failed to query with question **{{QUESTION}}**. Please try again later.",
                 "color": "{{COM:colors.error}}"
+            },
+            "workOnReminder": {
+                "description": "Boss, you haven't clocked in yet. Please do so before starting work.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOffReminder": {
+                "description": "Boss, you haven't clocked out yet. Please do so before leavingwork.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOnSuccess": {
+                "description": "Clocked in successfully. Today's tasks: **{{TASKS}}**. Let's get to work.",
+                "color": "{{COM:colors.success}}"
+            },
+            "workOffSuccess": {
+                "description": "Clocked out successfully. Today's progress: **{{PROGRESS}}**. Good job, boss.",
+                "color": "{{COM:colors.success}}"
             }
         },
         "channelRegexes": {

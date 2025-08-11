@@ -169,6 +169,22 @@
             "chatNoPermission": {
                 "description": "您沒有權限使用此指令。",
                 "color": "{{COM:colors.warning}}"
+            },
+            "workOnReminder": {
+                "description": "歐巴，您還沒打卡。出個聲不難吧。",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOffReminder": {
+                "description": "歐巴，您還沒下班。不下班我要繼續丟工作給你囉。",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOnSuccess": {
+                "description": "打卡成功！今日工作已記錄。請繼續保持高效。",
+                "color": "{{COM:colors.success}}"
+            },
+            "workOffSuccess": {
+                "description": "下班打卡成功！今日工作已結束。請好好休息，明天繼續努力。",
+                "color": "{{COM:colors.success}}"
             }
         },
         "validationEmbeds": {
