@@ -1,6 +1,6 @@
-import { Message } from 'discord.js';
+import { Message } from "discord.js";
 
-import { EventData } from '../models/internal-models.js';
+import { EventData } from "@/models/internal-models.js";
 
 export interface Trigger {
     requireGuild: boolean;
