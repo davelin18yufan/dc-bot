@@ -24,7 +24,8 @@
         "updatedServerCount": "Updated server count. Connected to {SERVER_COUNT} total servers.",
         "updatedServerCountSite": "Updated server count on '{BOT_SITE}'.",
         "guildJoined": "Guild '{GUILD_NAME}' ({GUILD_ID}) joined.",
-        "guildLeft": "Guild '{GUILD_NAME}' ({GUILD_ID}) left."
+        "guildLeft": "Guild '{GUILD_NAME}' ({GUILD_ID}) left.",
+        "clearedAttendance": "Cleared attendance."
     },
     "warn": {
         "managerNoShards": "No shards to spawn."

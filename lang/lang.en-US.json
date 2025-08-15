@@ -40,8 +40,12 @@
                 "title": "Help - {{REF:helpOptions.commands}}",
                 "fields": [
                     {
-                        "name": ["Backup"],
-                        "value": ["I got you baby. Type `/help` to see how awesome I am."]
+                        "name": [
+                            "Backup"
+                        ],
+                        "value": [
+                            "I got you baby. Type `/help` to see how awesome I am."
+                        ]
                     },
                     {
                         "name": "Commands",
@@ -63,7 +67,10 @@
                     },
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": ["{{REF:links.docsEmbed}}", "{{REF:links.supportEmbed}}"]
+                        "value": [
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.supportEmbed}}"
+                        ]
                     }
                 ]
             },
@@ -148,23 +155,57 @@
                 ]
             },
             "projectNoPermission": {
-                "description": "You do not have permission to use this command.",
+                "description": "Sorry, this is not a command you can touch. Please do not overstep your authority.",
                 "color": "{{COM:colors.warning}}"
             },
             "projectQuerySent": {
-                "description": "Query for project **{{PROJECT_NAME}}** has been sent. Please wait for the result.",
+                "description": "A query request for project **{{PROJECT_NAME}}** has been sent. I will keep an eye on it for you. Please be patient, not everyone is as efficient as I am.",
                 "color": "{{COM:colors.success}}"
             },
             "bugsNoPermission": {
-                "description": "You do not have permission to use this command.",
+                "description": "This is not a command you can touch. Permission is not something you get just by wanting it.",
                 "color": "{{COM:colors.warning}}"
             },
             "bugsQuerySent": {
-                "description": "Query for bug reports with status **{{STATUS}}** has been sent. Please wait for the result.",
+                "description": "A query for tickets with the status **{{STATUS}}** has been sent. I will track it for you. Please do not rush me, I am not an engineer.",
                 "color": "{{COM:colors.success}}"
             },
             "chatNoPermission": {
                 "description": "You do not have permission to use this command.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOnNoPermission": {
+                "description": "Oh, this command isn't for everyone, you know? Go check your permissions first, or go ask the administrator~",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOffNoPermission": {
+                "description": "Want to turn it off? Too bad you don't have the permission. Go sweet-talk the administrator... ahem, go apply to them.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOnReminder": {
+                "description": "Boss, you haven't clocked in yet. It's not that hard to make a sound.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOffReminder": {
+                "description": "Boss, you haven't clocked out yet. If you don't clock out, I'll keep throwing work at you.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOnSuccess": {
+                "description": "Clock-in successful! Today's work has been recorded. Please continue to be efficient.",
+                "color": "{{COM:colors.success}}"
+            },
+            "workOffSuccess": {
+                "description": "Clock-out successful! Today's work is finished. Please rest well and continue to work hard tomorrow.",
+                "color": "{{COM:colors.success}}"
+            },
+            "noonReminder": {
+                "title": "Noon Reminder",
+                "description": "It's noon, time for a break! The following users have not clocked in yet: {{MENTIONS}}",
+                "color": "{{COM:colors.warning}}"
+            },
+            "eveningReminder": {
+                "title": "Evening Reminder",
+                "description": "It's almost time to get off work! The following users are still clocked in: {{MENTIONS}}",
                 "color": "{{COM:colors.warning}}"
             }
         },
@@ -218,32 +259,24 @@
                 "color": "{{COM:colors.warning}}"
             },
             "projectQueryFailed": {
-                "description": "Failed to query project **{{PROJECT_NAME}}**. Please try again later.",
+                "description": "Project **{{PROJECT_NAME}}** could not be found. It's not my fault, the system is too stubborn. I suggest you try again later.",
                 "color": "{{COM:colors.error}}"
             },
             "bugsQueryFailed": {
-                "description": "Failed to query bug reports with status **{{STATUS}}**. Please try again later.",
+                "description": "The query for tickets with status **{{STATUS}}** failed. I'd love to find out why, but some errors are beyond my tolerance. Please try again in a few seconds.",
                 "color": "{{COM:colors.error}}"
             },
             "chatQueryFailed": {
-                "description": "Failed to query with question **{{QUESTION}}**. Please try again later.",
+                "description": "I tried to look it up based on your question: **{{QUESTION}}**, but it failed. Maybe the data is too mysterious, or the question wasn't precise enough. Please adjust and try again.",
                 "color": "{{COM:colors.error}}"
             },
-            "workOnReminder": {
-                "description": "Boss, you haven't clocked in yet. Please do so before starting work.",
-                "color": "{{COM:colors.warning}}"
+            "workOnAlreadyClockedIn": {
+                "description": "Hmph, haven't you already clocked in? Don't be so repetitive, I'm not playing a clock-in game with you.",
+                "color": "{{COM:colors.error}}"
             },
-            "workOffReminder": {
-                "description": "Boss, you haven't clocked out yet. Please do so before leavingwork.",
-                "color": "{{COM:colors.warning}}"
-            },
-            "workOnSuccess": {
-                "description": "Clocked in successfully. Today's tasks: **{{TASKS}}**. Let's get to work.",
-                "color": "{{COM:colors.success}}"
-            },
-            "workOffSuccess": {
-                "description": "Clocked out successfully. Today's progress: **{{PROGRESS}}**. Good job, boss.",
-                "color": "{{COM:colors.success}}"
+            "workOffNotClockedIn": {
+                "description": "Hey, you want to clock out before you've even clocked in? That's not how it works. Clock in first.",
+                "color": "{{COM:colors.error}}"
             }
         },
         "channelRegexes": {
@@ -264,7 +297,9 @@
             "test": "test",
             "project": "project",
             "bugs": "bugs",
-            "chat": "chat"
+            "chat": "chat",
+            "workOn": "work-on",
+            "workOff": "work-off"
         },
         "userCommands": {
             "viewDateJoined": "View Date Joined"
@@ -278,7 +313,9 @@
             "projectName": "project-name",
             "status": "status",
             "assignee": "assignee",
-            "question": "question"
+            "question": "question",
+            "progress": "progress",
+            "tasks": "tasks"
         },
         "commandDescs": {
             "dev": "Developer use only.",
@@ -286,8 +323,10 @@
             "info": "View bot info.",
             "test": "Run the test command.",
             "project": "Query project information.",
-            "bugs": "Query bug reports.",
-            "chat": "Ask LLM a question."
+            "bugs": "Query to-dos.",
+            "chat": "Ask LLM a question.",
+            "workOn": "Clock in and state planned tasks.",
+            "workOff": "Clock out and report progress."
         },
         "argDescs": {
             "devCommand": "Command.",
@@ -296,7 +335,9 @@
             "projectName": "The name of the project to query.",
             "status": "The status of the bug reports to query.",
             "assignee": "The user assigned to the bug report.",
-            "question": "The question to ask the LLM."
+            "question": "The question to ask the LLM.",
+            "progress": "The progress to report.",
+            "tasks": "The tasks to be done."
         },
         "fields": {
             "commands": "Commands",

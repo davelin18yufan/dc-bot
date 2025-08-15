@@ -1,9 +1,16 @@
 import { REST } from "@discordjs/rest";
-import { Options, Partials } from "discord.js";
+import { ClientOptions, Options, Partials } from "discord.js";
 import { createRequire } from "node:module";
 
 import { Button } from "@/buttons/index.js";
-import { BugsCommand, DevCommand, HelpCommand, InfoCommand, ProjectCommand, TestCommand } from "@/commands/chat/index.js";
+import {
+    BugsCommand,
+    DevCommand,
+    HelpCommand,
+    InfoCommand,
+    ProjectCommand,
+    TestCommand,
+} from "@/commands/chat/index.js";
 import {
     ChatCommandMetadata,
     Command,
@@ -22,7 +29,7 @@ import {
     TriggerHandler,
 } from "@/events/index.js";
 import { CustomClient } from "@/extensions/index.js";
-import { Job } from "@/jobs/index.js";
+import { ClearAttendanceJob, EveningReminderJob, Job, NoonReminderJob } from "@/jobs/index.js";
 import { Bot } from "@/models/bot.js";
 import { Reaction } from "@/reactions/index.js";
 import {
@@ -32,9 +39,9 @@ import {
     Logger,
 } from "@/services/index.js";
 import { Trigger } from "@/triggers/index.js";
+import Config from "~/config/config.json";
 
 const require = createRequire(import.meta.url);
-const Config = require("~/config/config.json");
 const Logs = require("~/lang/logs.json");
 
 async function start(): Promise<void> {
@@ -43,8 +50,8 @@ async function start(): Promise<void> {
 
     // Client
     const client = new CustomClient({
-        intents: Config.client.intents, // 需要從 Discord 接收哪些類型的事件通知 (例如：新訊息、成員加入等)。
-        partials: (Config.client.partials as string[]).map(partial => Partials[partial]), // 處理一些不完整的資料，例如在機器人離線時收到的訊息。
+        intents: Config.client.intents as ClientOptions["intents"], // 需要從 Discord 接收哪些類型的事件通知 (例如：新訊息、成員加入等)。
+        partials: Config.client.partials.map(partial => Partials[partial]), // 處理一些不完整的資料，例如在機器人離線時收到的訊息。
         makeCache: Options.cacheWithLimits({
             // Keep default caching behavior
             ...Options.DefaultMakeCacheSettings,
@@ -100,6 +107,9 @@ async function start(): Promise<void> {
 
     // Jobs
     const jobs: Job[] = [
+        new ClearAttendanceJob(),
+        new EveningReminderJob(client),
+        new NoonReminderJob(client),
         // TODO: Add new jobs here
     ];
 

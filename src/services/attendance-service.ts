@@ -39,4 +39,8 @@ export class AttendanceService {
     public getClockedInUsers(): string[] {
         return Array.from(this.clockedInUsers.keys());
     }
+
+    public clear(): void {
+        this.clockedInUsers.clear();
+    }
 }

@@ -3,36 +3,25 @@
         "displayEmbeds": {
             "welcome": {
                 "title": "老闆，您好。這不是歡迎，是提醒。我是*金秘書*，專職維持秩序、剷除混亂。如果您已經準備好努力，那我們可以好好共事。",
-                "description": [
-                    "{{REF:bot.description}}"
-                ],
+                "description": ["{{REF:bot.description}}"],
                 "fields": [
                     {
                         "name": "重要的 {{REF:fields.commands}}",
-                        "value": [
-                            "{{CMD_LINK_HELP}} - {{REF:commandDescs.help}}"
-                        ]
+                        "value": ["{{CMD_LINK_HELP}} - {{REF:commandDescs.help}}"]
                     },
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": [
-                            "{{REF:links.docsEmbed}}",
-                            "{{REF:links.supportEmbed}}"
-                        ]
+                        "value": ["{{REF:links.docsEmbed}}", "{{REF:links.supportEmbed}}"]
                     }
                 ]
             },
             "helpContactSupport": {
                 "title": "幫助 - {{REF:helpOptions.contactSupport}}",
-                "description": [
-                    "有任何問題或回饋嗎？透過下方的連結加入我們的支援伺服器！"
-                ],
+                "description": ["有任何問題或回饋嗎？透過下方的連結加入我們的支援伺服器！"],
                 "fields": [
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": [
-                            "{{REF:links.supportEmbed}}"
-                        ]
+                        "value": ["{{REF:links.supportEmbed}}"]
                     }
                 ]
             },
@@ -63,10 +52,7 @@
                     },
                     {
                         "name": "{{REF:fields.links}}",
-                        "value": [
-                            "{{REF:links.docsEmbed}}",
-                            "{{REF:links.supportEmbed}}"
-                        ]
+                        "value": ["{{REF:links.docsEmbed}}", "{{REF:links.supportEmbed}}"]
                     }
                 ]
             },
@@ -101,9 +87,7 @@
                     },
                     {
                         "name": "基於",
-                        "value": [
-                            "{{REF:links.templateEmbed}}"
-                        ]
+                        "value": ["{{REF:links.templateEmbed}}"]
                     }
                 ]
             },
@@ -170,6 +154,14 @@
                 "description": "您沒有權限使用此指令。",
                 "color": "{{COM:colors.warning}}"
             },
+            "workOnNoPermission": {
+                "description": "啊啊～這個指令不是人人都能用的喔？先去確認一下你的權限吧，不然就去拜託管理員～",
+                "color": "{{COM:colors.warning}}"
+            },
+            "workOffNoPermission": {
+                "description": "想關掉？可惜你沒有那個權限呢。去找管理員撒嬌…咳，去跟他們申請吧。",
+                "color": "{{COM:colors.warning}}"
+            },
             "workOnReminder": {
                 "description": "歐巴，您還沒打卡。出個聲不難吧。",
                 "color": "{{COM:colors.warning}}"
@@ -185,6 +177,16 @@
             "workOffSuccess": {
                 "description": "下班打卡成功！今日工作已結束。請好好休息，明天繼續努力。",
                 "color": "{{COM:colors.success}}"
+            },
+            "noonReminder": {
+                "title": "🍱 午間小提醒",
+                "description": "ㄚㄚ，中午了啦～該去休息了，不要再假裝認真了！可是這些人還沒打卡：{{MENTIONS}}",
+                "color": "{{COM:colors.warning}}"
+            },
+            "eveningReminder": {
+                "title": "🌇 傍晚小提醒",
+                "description": "欸欸～快下班了啦！還沒打下班卡的傢伙有：{{MENTIONS}}，別想耍小聰明哦～",
+                "color": "{{COM:colors.warning}}"
             }
         },
         "validationEmbeds": {
@@ -247,6 +249,14 @@
             "chatQueryFailed": {
                 "description": "我試著根據您問的：**{{QUESTION}}** 去查，但失敗了。可能是資料太神祕，或是問得不夠精準。請再調整後重試。",
                 "color": "{{COM:colors.error}}"
+            },
+            "workOnAlreadyClockedIn": {
+                "description": "哼，你不是已經打過卡了嗎？別再重複了啦，我可不是在陪你玩打卡遊戲。",
+                "color": "{{COM:colors.error}}"
+            },
+            "workOffNotClockedIn": {
+                "description": "欸欸，你還沒上班就想下班？這樣可不行喔，先打卡再說吧。",
+                "color": "{{COM:colors.error}}"
             }
         },
         "channelRegexes": {
@@ -267,7 +277,9 @@
             "test": "測試",
             "project": "專案",
             "bugs": "問題",
-            "chat": "聊天"
+            "chat": "聊天",
+            "workOn": "上班打卡",
+            "workOff": "下班打卡"
         },
         "userCommands": {
             "viewDateJoined": "查看加入日期"
@@ -281,7 +293,9 @@
             "projectName": "專案名稱",
             "status": "狀態",
             "assignee": "承辦人",
-            "question": "問題"
+            "question": "問題",
+            "progress": "進度",
+            "tasks": "任務"
         },
         "commandDescs": {
             "dev": "僅供開發者使用。",
@@ -289,8 +303,10 @@
             "info": "查看機器人資訊。",
             "test": "執行測試指令。",
             "project": "查詢專案資訊。",
-            "bugs": "查詢問題單。",
-            "chat": "向 LLM 提問。"
+            "bugs": "查詢待辦。",
+            "chat": "向 LLM 提問。",
+            "workOn": "上班打卡說明預計處理事項",
+            "workOff": "下班打卡回報處理進度"
         },
         "argDescs": {
             "devCommand": "指令。",
