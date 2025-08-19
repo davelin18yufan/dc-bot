@@ -1,7 +1,8 @@
-import { Message } from 'discord.js';
+import { Message } from "discord.js";
 
-import { EventHandler, TriggerHandler } from './index.js';
+import { EventHandler, TriggerHandler } from "./index.js";
 
+// 當機器人收到任何訊息時會被觸發
 export class MessageHandler implements EventHandler {
     constructor(private triggerHandler: TriggerHandler) {}
 
@@ -11,7 +12,7 @@ export class MessageHandler implements EventHandler {
             return;
         }
 
-        // Process trigger
+        // Process trigger 將收到的訊息物件 (message) 傳遞
         await this.triggerHandler.process(msg);
     }
 }
