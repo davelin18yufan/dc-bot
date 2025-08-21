@@ -29,7 +29,7 @@ export class TriggerHandler {
                 return false;
             }
 
-            // 一則訊息最多只會觸發一個 Trigger
+            // 一則訊息最多只會觸發一個 Trigger，觸發完後 triggered 會回傳 true
             if (!trigger.triggered(msg)) {
                 return false;
             }
