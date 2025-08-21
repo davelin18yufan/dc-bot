@@ -1,1 +1,2 @@
-export { Trigger } from "./trigger.js";
+export * from './secretary-triggers.js';
+export { Trigger } from './trigger.js';

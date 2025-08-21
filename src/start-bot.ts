@@ -38,7 +38,17 @@ import {
     JobService,
     Logger,
 } from "@/services/index.js";
-import { Trigger } from "@/triggers/index.js";
+import {
+    AfternoonTrigger,
+    ByeByeTrigger,
+    EndOfWorkTrigger,
+    HelloTrigger,
+    LunchTrigger,
+    MeetingTrigger,
+    MorningTrigger,
+    ThanksTrigger,
+    Trigger,
+} from "@/triggers/index.js";
 import Config from "~/config/config.json";
 
 const require = createRequire(import.meta.url);
@@ -92,8 +102,15 @@ async function start(): Promise<void> {
 
     // Triggers
     const triggers: Trigger[] = [
-        // TODO: Add new triggers here
-    ];
+        new MorningTrigger(),
+        new AfternoonTrigger(),
+        new HelloTrigger(),
+        new MeetingTrigger(),
+        new LunchTrigger(),
+        new ThanksTrigger(),
+        new EndOfWorkTrigger(),
+        new ByeByeTrigger(),
+    ].sort((a, b) => (a.requireGuild === b.requireGuild ? 0 : a.requireGuild ? -1 : 1)); // Triggers are sorted by requireGuild, so that guild-only triggers are processed first
 
     //* Discord.js 的運作方式是基於事件的。例如，當有人輸入指令時，會觸發一個 "interactionCreate" 事件；當有人加入伺服器時，會觸發一個 "guildCreate" 事件。
     // Event handlers
