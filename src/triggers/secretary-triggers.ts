@@ -16,7 +16,7 @@ export class MorningTrigger implements Trigger {
     ];
 
     public triggered(msg: Message): boolean {
-        return msg.content.includes("早安") || msg.content.includes("早");
+        return msg.content.includes("秘書早安") || msg.content.includes("秘書早") || msg.content.includes("金早") 
     }
 
     public async execute(msg: Message, _data: EventData): Promise<void> {
@@ -35,7 +35,7 @@ export class AfternoonTrigger implements Trigger {
     ];
 
     public triggered(msg: Message): boolean {
-        return msg.content.includes("午安");
+        return msg.content.includes("秘書午安");
     }
 
     public async execute(msg: Message, _data: EventData): Promise<void> {
@@ -63,12 +63,20 @@ export class HelloTrigger implements Trigger {
 export class MeetingTrigger implements Trigger {
     public requireGuild = false;
 
+    private responses = [
+        "會議、會議，每天都是會議... 資料準備好了嗎？別浪費我的時間喔。",
+        "又要開會了嗎? 真希望能直接跳過這些無聊的討論。",
+        "會議時間到了，戴上你的筆記本咖啡跟尊敬我的心，Let's go!",
+        "...，走吧。"
+    ];
+
     public triggered(msg: Message): boolean {
         return msg.content.includes("開會") || msg.content.includes("會議");
     }
 
     public async execute(msg: Message, _data: EventData): Promise<void> {
-        await msg.reply("會議、會議，每天都是會議... 資料準備好了嗎？別浪費我的時間喔。");
+        const randomResponses = this.responses[Math.floor(Math.random() * this.responses.length)];
+        await msg.reply(randomResponses);
     }
 }
 
@@ -120,6 +128,6 @@ export class ByeByeTrigger implements Trigger {
     }
 
     public async execute(msg: Message, _data: EventData): Promise<void> {
-        await msg.reply("慢走不送，明天記得帶點心來！");
+        await msg.reply("慢走不送，下次見面我希望有禮物給我！");
     }
 }
